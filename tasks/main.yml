@@ -1,0 +1,30 @@
+---
+- name: Numpy/Scipy -- Install using apt.
+  apt: pkg={{ item }} state=latest
+  with_items:
+    - python-numpy
+    - python-scipy
+    - libblas-dev
+    - liblapack-dev
+    - gfortran
+
+- name: Numpy-- Upgrade NumPy using pip.
+  pip: name=numpy state=latest
+
+- name: matplotlib -- Install using apt.
+  apt: pkg={{ item }} state=latest
+  with_items:
+    - python-matplotlib
+    - libfreetype6-dev
+    - libpng12-dev
+    - tk
+    - python-qt4
+    - python-gtk2
+    - python-wxgtk2.8
+    - libicu48
+    - librsvg2-common
+    - texlive-latex-extra
+    - texlive-extra-utils
+
+- name: IPython -- Install IPython using easy_install.
+  easy_install: name=ipython[all]

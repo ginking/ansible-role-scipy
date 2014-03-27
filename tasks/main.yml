@@ -28,3 +28,6 @@
 
 - name: IPython -- Install IPython using easy_install.
   easy_install: name=ipython[all]
+
+- name: Install Pandas.
+  pip: name=pandas state=latest

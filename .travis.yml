@@ -1,0 +1,10 @@
+language: python
+python:
+    - "2.7"
+install:
+    - pip install ansible
+    - ansible-playbook -i hosts --connection=local test.yml
+script:
+    - dpkg -s python-dev | grep Status
+    - pip --version
+    - easy_install --version

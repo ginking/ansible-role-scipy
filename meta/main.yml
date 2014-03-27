@@ -1,9 +1,9 @@
 ---
 galaxy_info:
   author: Steve Tjoa
-  description: The entire SciPy stack.
+  description: The SciPy stack, including NumPy, Matplotlib, IPython, and Pandas.
   license: MIT
-  min_ansible_version: 1.2
+  min_ansible_version: 1.5
   platforms:
   - name: Ubuntu
     versions:

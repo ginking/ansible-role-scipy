@@ -9,8 +9,11 @@
     - liblapack-dev
     - gfortran
 
-- name: Numpy-- Upgrade NumPy using pip.
+- name: Upgrade NumPy using pip.
   pip: name=numpy state=latest
+
+- name: Upgrade SciPy using pip.
+  pip: name=scipy state=latest
 
 - name: matplotlib -- Install using apt.
   sudo: yes
@@ -28,7 +31,7 @@
     - texlive-latex-extra
     - texlive-extra-utils
 
-- name: IPython -- Install IPython using easy_install.
+- name: Install IPython using easy_install.
   easy_install: name=ipython[all]
 
 - name: Install Pandas.

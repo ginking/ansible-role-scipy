@@ -31,6 +31,9 @@
     - texlive-latex-extra
     - texlive-extra-utils
 
+- name: Upgrade matplotlib using pip.
+  pip: name=matplotlib state=latest
+
 - name: Install IPython using easy_install.
   easy_install: name=ipython[all]
 

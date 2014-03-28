@@ -1,5 +1,6 @@
 ---
 - name: Numpy/Scipy -- Install using apt.
+  sudo: yes
   apt: pkg={{ item }} state=latest
   with_items:
     - python-numpy
@@ -12,6 +13,7 @@
   pip: name=numpy state=latest
 
 - name: matplotlib -- Install using apt.
+  sudo: yes
   apt: pkg={{ item }} state=latest
   with_items:
     - python-matplotlib

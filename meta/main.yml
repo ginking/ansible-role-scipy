@@ -11,4 +11,4 @@ galaxy_info:
   categories:
   - development
 dependencies: 
-  - stevetjoa.python-common,1.01
+  - stevetjoa.python-common

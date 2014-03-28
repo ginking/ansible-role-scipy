@@ -1,6 +1,8 @@
 ansible-role-scipy
 ==================
 
+[![Build Status](https://travis-ci.org/stevetjoa/ansible-role-scipy.svg?branch=master)](https://travis-ci.org/stevetjoa/ansible-role-scipy)
+
 The SciPy stack, including NumPy, SciPy, Matplotlib, IPython, and Pandas.
 
 Installation

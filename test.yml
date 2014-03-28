@@ -1,4 +1,5 @@
 ---
+# for travis-ci.org
 - hosts: all
   roles:
-     - role: stevetjoa.scipy
+    - role: ./stevetjoa.scipy

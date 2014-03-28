@@ -9,6 +9,5 @@ install:
     - ansible-galaxy install stevetjoa.scipy --roles-path=.
     - ansible-playbook -i hosts --connection=local test.yml
 script:
-    - dpkg -s python-dev | grep Status
-    - pip --version
-    - easy_install --version
+    - python test.py
+    - ipython --version

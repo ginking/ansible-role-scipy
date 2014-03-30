@@ -1,63 +1,34 @@
 ---
-- name: Install expect.
+- name: Install dependencies.
   sudo: yes
-  apt: pkg=expect state=latest
+  apt: pkg={{ item }} state=latest
+  with_items:
+    - python
+    - python-dev
+    - libblas-dev
+    - liblapack-dev
+    - libatlas-base-dev
+    - gfortran
+    - gcc
+    - g++
+    - git
+    - python-numpy
+    - python-scipy
+    - python-matplotlib
+    - python-pandas
+    - libfreetype6-dev
+    - libpng12-dev
+    - tk
+    - python-qt4
+    - python-gtk2
+    - python-wxgtk2.8
+    - libicu48
+    - librsvg2-common
+    - texlive-latex-extra
+    - texlive-extra-utils
 
-- name: Download Anaconda.
-  get_url: url=http://09c8d0b2229f813c1b93-c95ac804525aac4b6dba79b00b39d1d3.r79.cf1.rackcdn.com/Anaconda-1.9.1-Linux-x86_64.sh dest=. mode=0755
+- name: Install NumPy using pip.
+  pip: name=numpy state=latest
 
-- name: Install Anaconda.
-  command: ./anaconda_expect.sh
-
-#- name: Update Anaconda command-line utility.
-#  command: conda update conda
-#
-#- name: Update Anaconda packages.
-#  command: conda update anaconda
-#
-#- name: Install dependencies.
-#  sudo: yes
-#  apt: pkg={{ item }} state=latest
-#  with_items:
-#    - python
-#    - python-dev
-#    - libblas-dev
-#    - liblapack-dev
-#    - libatlas-base-dev
-#    - gfortran
-#    - gcc
-#    - g++
-#    - git
-#
-#- name: Install dependencies with pip.
-#  pip: name=cython state=latest
-#
-#- name: Install NumPy using pip.
-#  pip: name='git+https://github.com/numpy/numpy#egg=numpy'
-#
-#- name: Install SciPy using pip.
-#  pip: name='git+https://github.com/scipy/scipy#egg=scipy'
-#
-#- name: Install matplotlib dependencies.
-#  sudo: yes
-#  apt: pkg={{ item }} state=latest
-#  with_items:
-#    - libfreetype6-dev
-#    - libpng12-dev
-#    - tk
-#    - python-qt4
-#    - python-gtk2
-#    - python-wxgtk2.8
-#    - libicu48
-#    - librsvg2-common
-#    - texlive-latex-extra
-#    - texlive-extra-utils
-#
-#- name: Upgrade matplotlib using pip.
-#  pip: name=matplotlib state=latest
-#
-#- name: Install IPython using easy_install.
-#  easy_install: name=ipython[all]
-#
-#- name: Install Pandas.
-#  pip: name=pandas state=latest
+- name: Install IPython using easy_install.
+  easy_install: name=ipython[all]

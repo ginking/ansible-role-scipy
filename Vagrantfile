@@ -9,6 +9,6 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.vm.box_url = "http://files.vagrantup.com/precise64.box"
   config.vm.hostname = 'ansible-role-scipy'
   config.vm.boot_timeout = 60
-  config.vm.provision "shell", path: "test.sh"
+  config.vm.provision "shell", path: "provision.sh"
 
 end

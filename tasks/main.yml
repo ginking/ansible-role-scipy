@@ -9,12 +9,12 @@
 - name: Install Anaconda.
   command: ./anaconda_expect.sh
 
-- name: Update Anaconda command-line utility.
-  command: conda update conda
-
-- name: Update Anaconda packages.
-  command: conda update anaconda
-
+#- name: Update Anaconda command-line utility.
+#  command: conda update conda
+#
+#- name: Update Anaconda packages.
+#  command: conda update anaconda
+#
 #- name: Install dependencies.
 #  sudo: yes
 #  apt: pkg={{ item }} state=latest

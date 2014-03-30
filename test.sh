@@ -12,6 +12,6 @@ python --version
 pwd
 /usr/local/bin/pip install ansible
 ansible-galaxy install stevetjoa.python-common --roles-path=.
-ansible-playbook -i hosts --connection=local test.yml
+ansible-playbook -i hosts --connection=local test.yml -vv
 python test.py
 ipython --version

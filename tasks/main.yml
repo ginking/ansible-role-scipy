@@ -1,41 +1,62 @@
 ---
-- name: Numpy/Scipy -- Install using apt.
-  sudo: yes
-  apt: pkg={{ item }} state=latest
-  with_items:
-    - python-numpy
-    - python-scipy
-    - libblas-dev
-    - liblapack-dev
-    - gfortran
+- name: Download Anaconda.
+  get_url: url=http://09c8d0b2229f813c1b93-c95ac804525aac4b6dba79b00b39d1d3.r79.cf1.rackcdn.com/Anaconda-1.9.1-Linux-x86_64.sh dest=.
 
-- name: Upgrade NumPy using pip.
-  pip: name=numpy state=latest
+- name: Install Anaconda.
+  shell: /bin/bash anaconda_input.sh | /bin/bash Anaconda-1.9.1-Linux-x86_64.sh > /dev/null
 
-- name: Upgrade SciPy using pip.
-  pip: name=scipy state=latest
+#- name: Add Anaconda to PATH.
+#command: source ~/.bashrc
 
-- name: matplotlib -- Install using apt.
-  sudo: yes
-  apt: pkg={{ item }} state=latest
-  with_items:
-    - python-matplotlib
-    - libfreetype6-dev
-    - libpng12-dev
-    - tk
-    - python-qt4
-    - python-gtk2
-    - python-wxgtk2.8
-    - libicu48
-    - librsvg2-common
-    - texlive-latex-extra
-    - texlive-extra-utils
+- name: Update Anaconda command-line utility.
+  command: ~/anaconda/bin/conda update conda
 
-- name: Upgrade matplotlib using pip.
-  pip: name=matplotlib state=latest
+- name: Update Anaconda packages.
+  command: ~/anaconda/bin/conda update anaconda
 
-- name: Install IPython using easy_install.
-  easy_install: name=ipython[all]
-
-- name: Install Pandas.
-  pip: name=pandas state=latest
+#- name: Install dependencies.
+#  sudo: yes
+#  apt: pkg={{ item }} state=latest
+#  with_items:
+#    - python
+#    - python-dev
+#    - libblas-dev
+#    - liblapack-dev
+#    - libatlas-base-dev
+#    - gfortran
+#    - gcc
+#    - g++
+#    - git
+#
+#- name: Install dependencies with pip.
+#  pip: name=cython state=latest
+#
+#- name: Install NumPy using pip.
+#  pip: name='git+https://github.com/numpy/numpy#egg=numpy'
+#
+#- name: Install SciPy using pip.
+#  pip: name='git+https://github.com/scipy/scipy#egg=scipy'
+#
+#- name: Install matplotlib dependencies.
+#  sudo: yes
+#  apt: pkg={{ item }} state=latest
+#  with_items:
+#    - libfreetype6-dev
+#    - libpng12-dev
+#    - tk
+#    - python-qt4
+#    - python-gtk2
+#    - python-wxgtk2.8
+#    - libicu48
+#    - librsvg2-common
+#    - texlive-latex-extra
+#    - texlive-extra-utils
+#
+#- name: Upgrade matplotlib using pip.
+#  pip: name=matplotlib state=latest
+#
+#- name: Install IPython using easy_install.
+#  easy_install: name=ipython[all]
+#
+#- name: Install Pandas.
+#  pip: name=pandas state=latest

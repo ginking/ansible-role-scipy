@@ -9,9 +9,6 @@
 - name: Install Anaconda.
   command: ./anaconda_expect.sh
 
-- name: Add Anaconda to PATH.
-  command: ~/.bashrc
-
 - name: Update Anaconda command-line utility.
   command: conda update conda
 

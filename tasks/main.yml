@@ -7,16 +7,16 @@
   get_url: url=http://09c8d0b2229f813c1b93-c95ac804525aac4b6dba79b00b39d1d3.r79.cf1.rackcdn.com/Anaconda-1.9.1-Linux-x86_64.sh dest=. mode=0755
 
 - name: Install Anaconda.
-  shell: ./anaconda_expect.sh
+  command: ./anaconda_expect.sh
 
-#- name: Add Anaconda to PATH.
-#command: source ~/.bashrc
+- name: Add Anaconda to PATH.
+  command: ~/.bashrc
 
 - name: Update Anaconda command-line utility.
-  command: ~/anaconda/bin/conda update conda
+  command: conda update conda
 
 - name: Update Anaconda packages.
-  command: ~/anaconda/bin/conda update anaconda
+  command: conda update anaconda
 
 #- name: Install dependencies.
 #  sudo: yes

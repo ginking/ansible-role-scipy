@@ -6,7 +6,7 @@ install:
     - pip install ansible
     # the following dependency is not auto-installed due to bug in ansible-galaxy:
     - ansible-galaxy install stevetjoa.python-common,1.01 --roles-path=.
-    - ansible-playbook -i hosts --connection=local test.yml
+    - ansible-playbook -i hosts --connection=local test.yml -vv
 script:
     - python test.py
     - ipython --version

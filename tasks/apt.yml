@@ -1,0 +1,34 @@
+---
+- name: Install dependencies.
+  sudo: yes
+  apt: pkg={{ item }} state=latest
+  with_items:
+    - python
+    - python-dev
+    - libblas-dev
+    - liblapack-dev
+    - libatlas-base-dev
+    - gfortran
+    - gcc
+    - g++
+    - git
+    - python-numpy
+    - python-scipy
+    - python-matplotlib
+    - python-pandas
+    - libfreetype6-dev
+    - libpng12-dev
+    - tk
+    - python-qt4
+    - python-gtk2
+    - python-wxgtk2.8
+    - libicu48
+    - librsvg2-common
+    - texlive-latex-extra
+    - texlive-extra-utils
+
+- name: Install NumPy using pip.
+  pip: name=numpy state=latest
+
+- name: Install IPython using easy_install.
+  easy_install: name=ipython[all]

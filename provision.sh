@@ -3,7 +3,6 @@
 # install pip
 apt-get -qq update
 apt-get -y install python-dev python-pip
-pip install pip
 
 cd /vagrant
 python --version
